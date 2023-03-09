@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: grewpy
+Version: 0.2.0
+Summary: A binding to the Grew software
+Home-page: https://grew.fr
+Author: bguil
+Author-email: Bruno.Guillaume@loria.fr
+License: LICENSE/Licence_CeCILL_V2-en.txt
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# Python binding for Grew
+
+Install `grewpy` executable: http://grew.fr/usage/install
+
+See `docs` folder for usage
+

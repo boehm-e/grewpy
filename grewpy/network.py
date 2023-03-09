@@ -10,8 +10,10 @@ import sys
 
 from .grew import GrewError
 
-host = 'localhost'
-port = 8888
+host = os.environ.get("GREWPY_HOST", 'localhost')
+port = int(os.environ.get("GREWPY_PORT", "8888"))
+run_backend = os.getenv("RUN_GREW_BACKEND", 'True').lower() in ('true', '1', 't')
+
 remote_ip = ''
 caml_pid = None
 
@@ -30,7 +32,12 @@ def pid_exist(pid):
 
 def init():
     global port, remote_ip, caml_pid
+    if run_backend is False:
+        remote_ip = socket.gethostbyname(host)
+        return
+
     grewpy = "grewpy_backend"
+    print("RUN_BACKEND", run_backend)
     if not pid_exist(caml_pid):
         python_pid = os.getpid()
         while (port<8898):
